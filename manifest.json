@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "AntiFootprint",
+    "version": "0.1",
+    "description": "Try to leave no trace",
+
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "privacy",
+        "browserSettings",
+        "<all_urls>"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+			"run_at": "document_start",
+            "js": ["injector.js"]
+        }
+    ],
+
+    "web_accessible_resources": ["pageInjected.js"],
+
+    "background": {
+        "scripts": [
+            "listeners.js"
+        ]
+    }
+}
